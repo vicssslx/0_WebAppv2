@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Recommendation WebApp</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+    <div class="banner">
+        <img src="banner_edited.jpg">
+    </div>
+
+    <h1>Find yourself in a great book!</h1>
+    <form method="POST" action="/recommendations" id="recommendationsForm">
+        <label for="genres">Favourite genres (separate with commas):</label>
+        <input type="text" id="genres" name="genres"><br>
+
+        <label for="authors">Favourite authors (separate with commas):</label>
+        <input type="text" id="authors" name="authors"><br>
+
+        <input type="submit" value="Get recommendations">
+    </form>
+
+    <div id="responseContainer"></div>
+
+    <script type="module" src="/your-client-script.mjs"></script>
+
+</body>
+
+<footer>
+    <a href="https://www.freepik.com/free-photo/book-shelf-with-stack-no-cover-books_2791931.htm#query=books%20on%20shelf&position=1&from_view=search&track=ais&uuid=234380f6-c84a-4406-a139-29becaadf8db">Image by rawpixel.com</a> on Freepik
+</footer>
+
+</html>
