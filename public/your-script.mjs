@@ -37,8 +37,6 @@ function formatRecommendations(recommendation) {
     const formattedList = books.map((book, index) => {
         return (index + 1) + '. ' + book;
     });            
-    return '<p>Based on the genres you mentioned and the author you like, here are some book recommendations for you:' +
-    '</p><ol><li>' + formattedList.join('</li><li>') + '</li></ol>';
 }
 
 // ... Your existing Express setup

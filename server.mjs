@@ -28,7 +28,7 @@ app.post('/recommendations', async (req, res) => {
         const response = await openaiInstance.chat.completions.create({
             model: "gpt-3.5-turbo",
             max_tokens: 600,
-            messages: [{ role: "user", content: `recommend three books for someone who loves the following genres: "${genres}" and the following authors: "${authors}" with a one-line summary for each book, and in the same language as "${genres}" and "${authors}"`}]
+            messages: [{ role: "user", content: `recommend three books for someone who loves the following titles or genres: "${genres}" and the following authors: "${authors}" with a one-line summary for each book, and in the same language as "${genres}" and "${authors}"`}]
         });
 
         console.log('OpenAI Response:', response); // Log the entire OpenAI response
@@ -64,17 +64,6 @@ app.post('/recommendations', async (req, res) => {
     }
 });
 
-// function formatRecommendations(recommendation) {
-//     const lines = recommendation.split('\n');
-//     const books = lines; //.slice(1); // Exclude the first line (introductory message)
-//     const formattedList = books.map((book, index) => {
-//         return (index + 1) + '. ' + book;
-//     });
-
-//     // Join the list and add HTML tags
-//     return '<p>Based on the genres you mentioned and the author you like, here are some book recommendations for you:</p><ol>' + formattedList.join('') + '</ol>';
-// };
-
 function formatRecommendations(recommendation) {
     const lines = recommendation.split('\n');
     const books = lines; //.slice(1); // Exclude the first line (introductory message)
@@ -82,7 +71,7 @@ function formatRecommendations(recommendation) {
         return '<div>' + book + '</div><br/>';
     });
     // Join the list and add HTML tags
-    return '<p>Based on the genres you mentioned and the author you like, here are some book recommendations for you:</p><ol>' + formattedList.join('') + '</ol>';
+    return '<p>Based on the genres / titles you mentioned and the authors you like, here are some book recommendations for you:</p><ol>' + formattedList.join('') + '</ol>';
 }; 
 
 app.get('/', (req, res) => {
