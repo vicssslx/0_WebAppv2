@@ -28,7 +28,7 @@ app.post('/recommendations', async (req, res) => {
         const response = await openaiInstance.chat.completions.create({
             model: "gpt-3.5-turbo",
             max_tokens: 300,
-            messages: [{ role: "user", content: `recommend three books for someone who loves the following genres: "${genres}" and the following authors: "${authors}" with a one-line summary for each book` }]
+            messages: [{ role: "user", content: `recommend three books for someone who loves the following genres: "${genres}" and the following authors: "${authors}" with a one-line summary for each book, , in the same language as the genre and author that are given`}]
         });
 
         console.log('OpenAI Response:', response); // Log the entire OpenAI response
